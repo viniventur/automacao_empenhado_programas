@@ -215,7 +215,7 @@ try:
     novo_ws['K1'].alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
 
 
-    for c in range(6, 12):
+    for c in range(6, 13):
         for i in range(2, 21):
             novo_ws.cell(row=i, column=c).font = copy(modelo_cell_I2.font)
             novo_ws.cell(row=i, column=c).border = copy(modelo_cell_I2.border)
@@ -224,7 +224,7 @@ try:
             novo_ws.cell(row=i, column=c).alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
 
     # Inserir fórmula de soma nas células E19 a I19
-    for col in range(6, 12):
+    for col in range(6, 13):
         cell = novo_ws.cell(row=20, column=col)
         cell.value = f"=SUM({cell.column_letter}2:{cell.column_letter}19)"
 
