@@ -173,7 +173,8 @@ def formatar_planilha(info):
         novo_ws.column_dimensions['E'].width = 60
 
         # Ajuste específico para as colunas E até J
-        for col in ['F', 'G', 'H', 'I', 'J', 'K']:
+        for col in ['F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 
+           'AA', 'AB', 'AC', 'AD']:
             novo_ws.column_dimensions[col].width = 20 
 
         # Mesclar células de A19 a D19
@@ -202,7 +203,10 @@ def formatar_planilha(info):
         novo_ws['K1'].alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
 
 
-        for c in range(6, 13):
+        now = datetime.now()
+        numero_mes = now.month
+
+        for c in range(6, (7+numero_mes)):
             for i in range(2, 21):
                 novo_ws.cell(row=i, column=c).font = copy(modelo_cell_I2.font)
                 novo_ws.cell(row=i, column=c).border = copy(modelo_cell_I2.border)
@@ -211,7 +215,7 @@ def formatar_planilha(info):
                 novo_ws.cell(row=i, column=c).alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
 
         # Inserir fórmula de soma nas células E19 a I19
-        for col in range(6, 13):
+        for col in range(6, (7+numero_mes)):
             cell = novo_ws.cell(row=20, column=col)
             cell.value = f"=SUM({cell.column_letter}2:{cell.column_letter}19)"
 
